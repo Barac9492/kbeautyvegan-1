@@ -398,3 +398,31 @@
     color: hsl(var(--foreground));
   }
 }
+
+/* Custom Global Styles */
+:root {
+  --background: #fff8f0;
+  --foreground: #1a252f;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
