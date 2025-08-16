@@ -7,6 +7,8 @@ import AuthModal from '@/components/AuthModal'
 import { auth } from '@/lib/auth'
 import ProductGallery from '@/components/ProductGallery';
 
+import Image from 'next/image';
+
 export default function LandingPage() {
   const [scrollY, setScrollY] = useState(0)
   const [showAuthModal, setShowAuthModal] = useState(false)
@@ -107,9 +109,8 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-kbeauty-cream via-white to-kbeauty-pink">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-40 bg-white/80 backdrop-blur-lg border-b border-white/20">
+    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-50">
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-2">
@@ -134,99 +135,36 @@ export default function LandingPage() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative pt-20 pb-16 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
-          <div className="text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur border border-white/20 mb-8">
-                <Sparkles className="w-4 h-4 text-brand-primary" />
-                <span className="text-sm font-medium">Launching 2025 K-Beauty Revolution</span>
-              </div>
-              
-              <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                <span className="gradient-text">Vegan K-Beauty</span>
-                <br />
-                <span className="text-brand-dark">Intelligence Hub</span>
-              </h1>
-              
-              <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Discover tomorrow's Korean beauty trends today. AI-powered insights, 
-                exclusive vegan products, and gamified predictions for the conscious beauty enthusiast.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <motion.button
-                  onClick={handleGetStarted}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-brand-primary to-brand-secondary text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all"
-                >
-                  {user ? 'Go to Dashboard' : 'Start Free Trial'}
-                </motion.button>
-                
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-white/80 backdrop-blur rounded-full font-semibold hover:bg-white/90 transition-all border border-white/20"
-                >
-                  Watch Demo
-                </motion.button>
-              </div>
-
-              {/* Stats */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                {stats.map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 + index * 0.1 }}
-                    className="text-center"
-                  >
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <div className="text-brand-primary">{stat.icon}</div>
-                      <span className="text-2xl font-bold text-brand-dark">{stat.value}</span>
-                    </div>
-                    <p className="text-sm text-gray-600">{stat.label}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+      <main className="container mx-auto px-4 pt-24 pb-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="flex-1 space-y-6">
+            <h1 className="text-5xl font-bold tracking-tight">Discover Vegan K-Beauty Trends</h1>
+            <p className="text-xl text-gray-600">AI-powered insights for the future of cruelty-free Korean cosmetics.</p>
+            <button className="px-6 py-3 bg-pink-500 text-white rounded-full font-semibold">Get Started</button>
+          </div>
+          
+          <div className="flex-1 grid grid-cols-3 gap-4">
+            {/* Column 1 */}
+            <div className="space-y-4">
+              <Image src="https://images.unsplash.com/photo-1556228720-195a672e8a44?auto=format&fit=crop&w=200" alt="Vegan serum" width={200} height={300} className="rounded-xl shadow-md" />
+              <Image src="https://images.unsplash.com/photo-1525909002-1e1dfa8faa5c?auto=format&fit=crop&w=200" alt="Natural cream" width={200} height={200} className="rounded-xl shadow-md" />
+            </div>
+            
+            {/* Column 2 */}
+            <div className="space-y-4 pt-8">
+              <Image src="https://images.unsplash.com/photo-1598440947619-2c35fc9aaecb?auto=format&fit=crop&w=150" alt="Plant-based lotion" width={150} height={250} className="rounded-xl shadow-md" />
+              <Image src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=150" alt="Organic mask" width={150} height={150} className="rounded-xl shadow-md" />
+              <Image src="https://images.unsplash.com/photo-1556228578-0d712847d4bb?auto=format&fit=crop&w=150" alt="Eco-friendly balm" width={150} height={150} className="rounded-xl shadow-md" />
+            </div>
+            
+            {/* Column 3 */}
+            <div className="space-y-4">
+              <Image src="https://images.unsplash.com/photo-1580870069867-74c57ee1bb07?auto=format&fit=crop&w=180" alt="Vegan makeup" width={180} height={280} className="rounded-xl shadow-md" />
+              <Image src="https://images.unsplash.com/photo-1556228720-195a672e8a44?auto=format&fit=crop&w=180" alt="Cruelty-free essence" width={180} height={180} className="rounded-xl shadow-md" />
+            </div>
           </div>
         </div>
-
-        {/* Floating elements */}
-        <motion.div
-          className="absolute top-32 left-10 w-20 h-20 rounded-full bg-gradient-to-br from-kbeauty-pink to-kbeauty-lavender opacity-60"
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 180, 360],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-        
-        <motion.div
-          className="absolute bottom-32 right-10 w-32 h-32 rounded-full bg-gradient-to-br from-kbeauty-mint to-brand-accent opacity-40"
-          animate={{
-            y: [0, 20, 0],
-            rotate: [360, 180, 0],
-          }}
-          transition={{
-            duration: 15,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
-      </section>
+      </main>
 
       {/* Live Trends Ticker */}
       <section className="py-4 bg-white/60 backdrop-blur border-y border-white/20">
