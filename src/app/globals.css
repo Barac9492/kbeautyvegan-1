@@ -238,6 +238,34 @@
   }
   
   /* Enhanced animations */
+  .animate-gentle-bounce {
+    animation: gentleBounce 2s ease-in-out infinite;
+  }
+
+  .animate-soft-glow {
+    animation: softGlow 2s ease-in-out infinite;
+  }
+
+  @keyframes gentleBounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes softGlow {
+    0%, 100% {
+      opacity: 1;
+      box-shadow: 0 0 10px rgba(255, 107, 157, 0.2);
+    }
+    50% {
+      opacity: 0.8;
+      box-shadow: 0 0 20px rgba(255, 107, 157, 0.4);
+    }
+  }
+
   .shimmer-effect {
     background: linear-gradient(
       90deg,
