@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Mail, Lock, User, Sparkles, Heart, Eye, EyeOff } from 'lucide-react'
-import { auth } from '@/lib/auth'
+import { signIn, signUp } from '@/lib/auth'
 
 interface AuthModalProps {
   isOpen: boolean
@@ -40,11 +40,11 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
 
     try {
       if (mode === 'signup') {
-        const { error } = await auth.signUp(email, password, username)
-        if (error) throw error
+        const { error } = await signUp(email, password, username, '')
+        if (error) throw new Error(error)
       } else {
-        const { error } = await auth.signIn(email, password)
-        if (error) throw error
+        const { error } = await signIn(email, password)
+        if (error) throw new Error(error)
       }
       
       onSuccess?.()
@@ -59,12 +59,14 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
   const handleSocialLogin = async (provider: 'google' | 'kakao') => {
     setLoading(true)
     try {
-      const { error } = provider === 'google' 
-        ? await auth.signInWithGoogle()
-        : await auth.signInWithKakao()
+      // TODO: Implement social login
+      // const { error } = provider === 'google' 
+      //   ? await signInWithGoogle()
+      //   : await signInWithKakao()
       
-      if (error) throw error
-      onSuccess?.()
+      // if (error) throw error
+      // onSuccess?.()
+      setError('Social login not yet implemented')
     } catch (err: any) {
       setError(err.message || 'Social login failed')
     } finally {
@@ -289,7 +291,7 @@ export default function AuthModal({ isOpen, onClose, onSuccess }: AuthModalProps
                 <p className="text-center text-sm text-gray-600 mt-6">
                   {mode === 'signin' ? (
                     <>
-                      Don't have an account?{' '}
+                      Don&apos;t have an account?{' '}
                       <button
                         onClick={() => setMode('signup')}
                         className="text-brand-primary font-semibold hover:underline"
