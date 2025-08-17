@@ -35,12 +35,13 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ### Build Configuration
 
 The project is configured with:
-- ✅ Next.js 15.4.6
+- ✅ Next.js 15.4.6 (auto-detected by Vercel)
 - ✅ Optimized Tailwind CSS
 - ✅ Framer Motion animations
 - ✅ TypeScript support
 - ✅ ESLint configuration
 - ✅ Production-ready settings
+- ✅ No custom vercel.json needed (uses defaults)
 
 ### Common Issues & Solutions
 
