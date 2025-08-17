@@ -1,0 +1,17 @@
+{
+  "crons": [
+    {
+      "path": "/api/cron/update-data",
+      "schedule": "0 */1 * * *"
+    },
+    {
+      "path": "/api/cron/archive-cleanup",
+      "schedule": "0 2 * * *"
+    }
+  ],
+  "functions": {
+    "src/app/api/cron/**/*.ts": {
+      "maxDuration": 300
+    }
+  }
+}

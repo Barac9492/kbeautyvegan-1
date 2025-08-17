@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "setup-data": "tsx scripts/setup-data-system.ts",
+    "update-data": "tsx scripts/manual-update.ts"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.0.5",
@@ -35,6 +37,7 @@
     "eslint-config-next": "14.0.4",
     "postcss": "^8.4.33",
     "tailwindcss": "^3.4.0",
+    "tsx": "^4.7.0",
     "typescript": "^5.3.3"
   }
 }
